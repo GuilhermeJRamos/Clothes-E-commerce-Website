@@ -101,7 +101,15 @@ function updateTotalCart() {
   const amountItensCart = document.getElementById("amountItensCart");
   const ulCart = document.querySelector(".productsCartList");
   amountItensCart.innerText = ulCart.children.length;
-  mostWanteditems();
+
+  if (ul.children.length > 2) {
+    for (let i = 0; i < ul.children.length; i++) {
+      const amountIten =
+        +ul.children[i].querySelector(".valueAmount").textContent;
+      amountArray.push(amountIten);
+    }
+    mostWanteditems();
+  }
 }
 
 // Remove Product Cart
@@ -115,8 +123,16 @@ for (let i = 0; i < removeProductCartBtn.length; i++) {
 function removeProductCart(ev) {
   ev.target.parentElement.remove();
   updateTotalCart();
-  mostWanteditems();
   checkedCartEmpty();
+
+  if (ul.children.length > 2) {
+    for (let i = 0; i < ul.children.length; i++) {
+      const amountIten =
+        +ul.children[i].querySelector(".valueAmount").textContent;
+      amountArray.push(amountIten);
+    }
+    mostWanteditems();
+  }
 }
 
 // Add and Remove Amount Product
@@ -135,7 +151,15 @@ function addAmountProduct(ev) {
   valueAmount++;
   ev.target.parentElement.querySelector(".valueAmount").innerText = valueAmount;
   updateTotalCart();
-  mostWanteditems();
+
+  if (ul.children.length > 2) {
+    for (let i = 0; i < ul.children.length; i++) {
+      const amountIten =
+        +ul.children[i].querySelector(".valueAmount").textContent;
+      amountArray.push(amountIten);
+    }
+    mostWanteditems();
+  }
 }
 function removeAmountProduct(ev) {
   let valueAmount =
@@ -146,8 +170,16 @@ function removeAmountProduct(ev) {
   valueAmount--;
   ev.target.parentElement.querySelector(".valueAmount").innerText = valueAmount;
   updateTotalCart();
-  mostWanteditems();
   checkedCartEmpty();
+
+  if (ul.children.length > 2) {
+    for (let i = 0; i < ul.children.length; i++) {
+      const amountIten =
+        +ul.children[i].querySelector(".valueAmount").textContent;
+      amountArray.push(amountIten);
+    }
+    mostWanteditems();
+  }
 }
 
 // Add Product Cart
@@ -203,7 +235,6 @@ function addProductCart(ev) {
   `;
   ulCart.appendChild(newLiCart);
   updateTotalCart();
-  mostWanteditems();
   newLiCart
     .querySelector(".amountProduct .removeAmountProduct")
     .addEventListener("click", removeAmountProduct);
@@ -214,16 +245,24 @@ function addProductCart(ev) {
     .querySelector(".fa-trash")
     .addEventListener("click", removeProductCart);
 
-// console.log(ul.children[1].querySelector(".valueAmount").textContent);
-// console.log(ul.children.length);
+  if (ul.children.length > 2) {
+    for (let i = 0; i < ul.children.length; i++) {
+      const amountIten =
+        +ul.children[i].querySelector(".valueAmount").textContent;
+      amountArray.push(amountIten);
+    }
+    mostWanteditems();
+  }
+}
+// Most Wanted Items
 
-if (ul.children.length > 0) {
+if (ul.children.length > 3) {
   for (let i = 0; i < ul.children.length; i++) {
+    mostWanteditems();
     const amountIten =
       +ul.children[i].querySelector(".valueAmount").textContent;
     amountArray.push(amountIten);
   }
-  mostWanteditems();
 }
 
 function mostWanteditems() {
@@ -246,29 +285,29 @@ function mostWanteditems() {
     for (let i = 0; i < ul.children.length; i++) {
       const amountIten =
         ul.children[i].querySelector(".valueAmount").textContent;
-      if (+amountIten === ev) {
-        const mostDesiredProduct =
-          ul.children[i].querySelector(".valueAmount").parentElement
-            .parentElement;
-        const img = mostDesiredProduct.querySelector("img").src;
-        const name =
-          mostDesiredProduct.querySelector(".nameProduct").textContent;
-        const price = mostDesiredProduct.querySelector("h3").textContent;
-        console.log(price);
+      if (numberId <= 3) {
+        if (+amountIten === ev) {
+          const mostDesiredProduct =
+            ul.children[i].querySelector(".valueAmount").parentElement
+              .parentElement;
+          const img = mostDesiredProduct.querySelector("img").src;
+          const name =
+            mostDesiredProduct.querySelector(".nameProduct").textContent;
+          const price = mostDesiredProduct.querySelector("h3").textContent;
+          const box = document.querySelector(`#box${numberId}`);
+          box.innerHTML = `
+           <img src="${img}" alt="${name}">
+           <h2>${name}</h2>
+           <div class="alignPrice-btn">
+                  <span>${price}</span>
+                 <i class='bx bx-cart-alt' ></i>
+           </div>
+          `;
+          const addCartBtn = box.querySelector(".bx-cart-alt");
+          addCartBtn.addEventListener("click", addProductCart);
 
-        const box = document.querySelector(`#box${numberId}`);
-        box.innerHTML = `
-       <img src="${img}" alt="${name}">
-       <h2>${name}</h2>
-       <div class="alignPrice-btn">
-              <span>${price}</span>
-             <i class='bx bx-cart-alt' ></i>
-       </div>
-      `;
-        const addCartBtn = box.querySelector(".bx-cart-alt");
-        addCartBtn.addEventListener("click", addProductCart);
-
-        numberId++;
+          numberId++;
+        }
       }
     }
   });
