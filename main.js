@@ -221,13 +221,13 @@ function addProductCart(ev) {
 // console.log(ul.children[1].querySelector(".valueAmount").textContent);
 // console.log(ul.children.length);
 
-if (ul.children.length > 0) {
+if (ul.children.length > 3) {
   for (let i = 0; i < ul.children.length; i++) {
+    mostWanteditems();
     const amountIten =
       +ul.children[i].querySelector(".valueAmount").textContent;
     amountArray.push(amountIten);
   }
-  mostWanteditems();
 }
 
 function mostWanteditems() {
