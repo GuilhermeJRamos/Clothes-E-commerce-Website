@@ -156,12 +156,10 @@ const addProductCartBtn = document.getElementsByClassName("bx-cart-alt");
 
 for (let i = 0; i < addProductCartBtn.length; i++) {
   updateTotalCart();
-  mostWanteditems();
   addProductCartBtn[i].addEventListener("click", addProductCart);
 }
 
 function addProductCart(ev) {
-  mostWanteditems();
   const product = ev.target.parentElement.parentElement;
   const img = product.querySelector("img").src;
   const name = product.querySelector("h2").textContent;
@@ -215,20 +213,19 @@ function addProductCart(ev) {
   newLiCart
     .querySelector(".fa-trash")
     .addEventListener("click", removeProductCart);
+
+  if (ul.children.length > 2) {
+    for (let i = 0; i < ul.children.length; i++) {
+      const amountIten =
+        +ul.children[i].querySelector(".valueAmount").textContent;
+      amountArray.push(amountIten);
+    }
+    mostWanteditems();
+  }
 }
 // Most Wanted Items
 
 // console.log(ul.children[1].querySelector(".valueAmount").textContent);
-// console.log(ul.children.length);
-
-if (ul.children.length > 0) {
-  for (let i = 0; i < ul.children.length; i++) {
-    const amountIten =
-      +ul.children[i].querySelector(".valueAmount").textContent;
-    amountArray.push(amountIten);
-  }
-  mostWanteditems();
-}
 
 function mostWanteditems() {
   let a = [];
