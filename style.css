@@ -92,6 +92,7 @@ header.shadow {
   display: none;
 }
 .cart {
+  cursor: pointer;
   position: relative;
 }
 .cart span {
@@ -109,6 +110,185 @@ header.shadow {
   padding: 4px;
   color: var(--bg-color);
 }
+/* Modal Cart */
+.alertCartEmpty {
+  text-align: center;
+  margin: 30px 15px;
+  gap: 10px;
+}
+.alertCartEmpty h1 {
+  font-size: 35px;
+  font-weight: 600;
+}
+.alertCartEmpty button {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  color: var(--text-color);
+  border: none;
+  box-shadow: 3px 3px 0px 1px var(--text-color);
+  background-color: var(--main-light-color);
+}
+.alertCartEmpty button:active {
+  box-shadow: 0px 0px 0px 0px var(--text-color),
+    inset 7px 5px 5px var(--text-color);
+  transform: translate(3px, 3px);
+}
+.none {
+  display: none;
+}
+.containerModalCart {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: end;
+  background-color: rgba(87, 86, 85, 0.692);
+  z-index: 101;
+}
+.containerModalCart aside.modalCart {
+  position: fixed;
+  top: 0%;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+  background-color: var(--container-color);
+  border-radius: 8px 0px 0px 0px;
+  animation: openModalCart 0.4s linear;
+}
+@keyframes openModalCart {
+  0% {
+    transform: translateX(400px);
+  }
+  25% {
+    transform: translateX(300px);
+  }
+  50% {
+    transform: translateX(200px);
+  }
+  75% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+.containerModalCart aside .headerCartMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+.headerCartMenu h1 {
+  font-size: 25px;
+}
+.headerCartMenu h1 span {
+  color: var(--main-color);
+}
+.headerCartMenu #exitMenuCartBtn {
+  cursor: pointer;
+  font-size: 20px;
+}
+ul.descriptionCartMenu {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-color);
+  opacity: 0.5;
+}
+ul.productsCartList {
+  width: 100%;
+  height: 60%;
+  overflow-y: scroll;
+}
+ul.productsCartList::-webkit-scrollbar {
+  width: 0.5rem;
+  border-radius: 0.2rem;
+  background-color: var(--main-light-color);
+}
+ul.productsCartList::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: var(--text-color);
+}
+.productCart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  margin: 5px 0px;
+  box-shadow: 3px 1px 4px 0px rgba(15, 54, 55, 0.308);
+  position: relative;
+}
+.productCart span {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.productCart i {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 15px;
+}
+.productCart span:nth-child(1) {
+  flex-direction: column;
+}
+.productCart span img {
+  width: 50px;
+  height: 50px;
+}
+.productCart span p {
+  font-weight: 600;
+  font-size: 10px;
+}
+.amountProduct button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: rgba(71, 69, 69, 0.397);
+  border-radius: 8px;
+}
+.amountProduct p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px 2px var(--main-color);
+}
+.productCart h3 {
+  color: var(--text-color);
+  opacity: 0.6;
+  font-size: 12px;
+}
+aside footer {
+  position: absolute;
+  background-color: var(--container-color);
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 6rem;
+  bottom: 0;
+}
+footer button#checkoutBtn {
+  width: 200px;
+  height: 50px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 3px 3px 0px 1px var(--text-color);
+  background-color: var(--main-light-color);
+}
+footer button#checkoutBtn:active {
+  box-shadow: 0px 0px 0px 0px var(--text-color),
+    inset 5px 5px 5px var(--text-color);
+  transform: translate(3px, 3px);
+}
+
 /* Home */
 .home {
   max-width: 1300px;
@@ -186,7 +366,7 @@ header.shadow {
   gap: 2rem;
 }
 .shop-container .box {
-  position: relative;
+  /* position: relative; */
   padding: 10px;
   border-radius: 0.5rem;
   box-shadow: 1px 2px 4px rgb(15 54 55 / 10%);
@@ -203,15 +383,17 @@ header.shadow {
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
+.alignPrice-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .shop-container .box span {
   font-size: 1rem;
   font-weight: 500;
   color: var(--main-color);
 }
 .shop-container .box .bx {
-  position: absolute;
-  bottom: 1rem;
-  right: 0.8rem;
   padding: 10px;
   font-size: 20px;
   background: var(--main-color);
