@@ -244,6 +244,9 @@ ul.productsCartList::-webkit-scrollbar-thumb {
   font-weight: 600;
   font-size: 10px;
 }
+button{
+  cursor: pointer;
+}
 .amountProduct button {
   width: 20px;
   height: 20px;
@@ -392,6 +395,9 @@ footer button#checkoutBtn:active {
   font-size: 1rem;
   font-weight: 500;
   color: var(--main-color);
+}
+i{
+  cursor: pointer;
 }
 .shop-container .box .bx {
   padding: 10px;
