@@ -214,18 +214,17 @@ function addProductCart(ev) {
     .querySelector(".fa-trash")
     .addEventListener("click", removeProductCart);
 
-  if (ul.children.length > 2) {
-    for (let i = 0; i < ul.children.length; i++) {
-      const amountIten =
-        +ul.children[i].querySelector(".valueAmount").textContent;
-      amountArray.push(amountIten);
-    }
-    mostWanteditems();
-  }
-}
-// Most Wanted Items
-
 // console.log(ul.children[1].querySelector(".valueAmount").textContent);
+// console.log(ul.children.length);
+
+if (ul.children.length > 0) {
+  for (let i = 0; i < ul.children.length; i++) {
+    const amountIten =
+      +ul.children[i].querySelector(".valueAmount").textContent;
+    amountArray.push(amountIten);
+  }
+  mostWanteditems();
+}
 
 function mostWanteditems() {
   let a = [];
