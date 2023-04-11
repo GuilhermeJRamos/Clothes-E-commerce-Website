@@ -115,6 +115,7 @@ header.shadow {
 }
 /* Modal Cart */
 .alertCartEmpty {
+  display: none;
   text-align: center;
   margin: 30px 15px;
   gap: 10px;
@@ -152,6 +153,13 @@ header.shadow {
   display: flex;
 }
 
+.containerModalCart.emptyCart .descriptionCartMenu,
+.containerModalCart.emptyCart #checkoutBtn {
+  display: none;
+}
+.containerModalCart.emptyCart .alertCartEmpty {
+  display: block;
+}
 .containerModalCart .modalCart {
   position: fixed;
   top: 0%;
@@ -179,7 +187,7 @@ header.shadow {
     transform: translateX(0px);
   }
 }
-.containerModalCart aside .headerCartMenu {
+.modalCart .headerCartMenu {
   display: flex;
   align-items: center;
   justify-content: space-between;
