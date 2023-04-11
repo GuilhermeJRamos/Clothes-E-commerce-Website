@@ -7,6 +7,8 @@
     <title>Responsive E-Commerce Website Design</title>
     <!-- Link To CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- Font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Fav Icon -->
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <!-- Box Icons -->
@@ -30,11 +32,35 @@
             <!-- ICons -->
             <div class="nav-icons">
                 <a href="#" class="user"><i class='bx bxs-user'></i></a>
-                <a href="#" class="cart"><i class='bx bxs-cart' ></i><span>0</span></a>
+                <div class="cart"><i class='bx bxs-cart' ></i><span id="amountItensCart">0</span></div>
                 <i class='bx bx-menu' id="menu-icon" ></i>
             </div>
         </div>
     </header>
+    <!--Modal Cart-->
+    <div id="containerModalCart" class="containerModalCart">
+        <aside class="modalCart">
+            <div class="headerCartMenu">
+                    <i class="fa-solid fa-right-from-bracket" style="opacity: 0;;"></i>
+                    <h1>C<span>a</span>rt</h1>
+                    <i id="exitMenuCartBtn" class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <ul class="descriptionCartMenu">
+                <li>Produto:</li>
+                <li id="priceTotalCart">Total: R$ 00.00</li>
+                <li>Valor:</li>
+            </ul>
+            <div id="alertCartEmpty" class="alertCartEmpty">
+                <h1>Seu Carrinho Esta Vazio</h1>
+                <button>Continuar Comprando</button>
+            </div>
+            <ul class="productsCartList">
+            </ul>
+            <footer>
+                <button id="checkoutBtn">Finalizar Compra</button>
+            </footer>
+        </aside>
+    </div>
     <!-- Home -->
     <section class="home" id="home">
         <!-- Home Content -->
@@ -88,66 +114,69 @@
         <div class="shop-container container">
             <div class="box">
                 <img src="img/shop1.png" alt="">
-                <h2>Nike Therma</h2>
-                <span>50.99$</span>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
+                <h2>Nike Therma 1</h2>
+                <div class="alignPrice-btn">
+                    <span>50.99$</span>
+                    <i class='bx bx-cart-alt' ></i>
+                </div>
             </div>
             <div class="box">
                 <img src="img/shop2.png" alt="">
-                <h2>Nike Therma</h2>
-                <span>50.99$</span>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
+                <h2>Nike Therma 2</h2>
+                <div class="alignPrice-btn">
+                    <span>50.99$</span>
+                    <i class='bx bx-cart-alt' ></i>
+                </div>
             </div>
             <div class="box">
                 <img src="img/shop3.png" alt="">
-                <h2>Nike Therma</h2>
-                <span>50.99$</span>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
+                <h2>Nike Therma 3</h2>
+                <div class="alignPrice-btn">
+                    <span>50.99$</span>
+                    <i class='bx bx-cart-alt' ></i>>
+                </div>
             </div>
             <div class="box">
                 <img src="img/shop4.png" alt="">
-                <h2>Nike Therma</h2>
-                <span>50.99$</span>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
+                <h2>Nike Therma 4</h2>
+                <div class="alignPrice-btn">
+                    <span>50.99$</span>
+                    <i class='bx bx-cart-alt' ></i>
+                </div>
             </div>
             <div class="box">
                 <img src="img/shop5.png" alt="">
-                <h2>Nike Therma</h2>
-                <span>50.99$</span>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
+                <h2>Nike Therma 5</h2>
+                <div class="alignPrice-btn">
+                    <span>50.99$</span>
+                    <i class='bx bx-cart-alt' ></i>
+                </div>
             </div>
             <div class="box">
                 <img src="img/shop6.png" alt="">
-                <h2>Nike Therma</h2>
-                <span>50.99$</span>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
+                <h2>Nike Therma 6</h2>
+                <div class="alignPrice-btn">
+                    <span>50.99$</span>
+                    <i class='bx bx-cart-alt' ></i>
+                </div>
             </div>
         </div>
     </section>
     <!-- New Container -->
     <section class="new" id="new">
         <div class="heading">
-            <h2>New <Span>Arrival</Span></h2>
+            <h2>Most <Span>Wanted</Span></h2>
         </div>
         <!-- Shop Content -->
         <div class="shop-container container">
-            <div class="box">
-                <img src="img/new1.png" alt="">
-                <h2>Nike Shoes</h2>
-                <span>50.99$</span>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
+            <div id="box1" class="box">
+               
             </div>
-            <div class="box">
-                <img src="img/new2.png" alt="">
-                <h2>Nike Bagpack</h2>
-                <span>50.99$</span>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
+            <div id="box2" class="box">
+                
             </div>
-            <div class="box">
-                <img src="img/new3.png" alt="">
-                <h2>Nike Hat</h2>
-                <span>50.99$</span>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
+            <div id="box3" class="box">
+                
             </div>
           
     </section>

@@ -38,7 +38,7 @@ document
   .querySelector('#alertCartEmpty button')
   .addEventListener('click', closeModalCartAndAddScroll)
 
-// Checked Cart Empty
+
 
 // Update Total Price
 // function updateTotalCart() {
