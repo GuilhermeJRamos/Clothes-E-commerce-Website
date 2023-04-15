@@ -1,7 +1,7 @@
 /* Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -32,6 +32,9 @@ img {
 }
 body {
   color: var(--text-color);
+}
+body.noScroll {
+  overflow: hidden;
 }
 section {
   padding: 4rem 0 2rem;
@@ -112,6 +115,7 @@ header.shadow {
 }
 /* Modal Cart */
 .alertCartEmpty {
+  display: none;
   text-align: center;
   margin: 30px 15px;
   gap: 10px;
@@ -135,19 +139,28 @@ header.shadow {
     inset 7px 5px 5px var(--text-color);
   transform: translate(3px, 3px);
 }
-.none {
-  display: none;
-}
+
 .containerModalCart {
   position: fixed;
   width: 100%;
   height: 100vh;
-  display: flex;
+  display: none;
   justify-content: end;
   background-color: rgba(87, 86, 85, 0.692);
   z-index: 101;
 }
-.containerModalCart aside.modalCart {
+.containerModalCart.show {
+  display: flex;
+}
+
+.containerModalCart.emptyCart .descriptionCartMenu,
+.containerModalCart.emptyCart #checkoutBtn {
+  display: none;
+}
+.containerModalCart.emptyCart .alertCartEmpty {
+  display: block;
+}
+.containerModalCart .modalCart {
   position: fixed;
   top: 0%;
   bottom: 0;
@@ -174,7 +187,7 @@ header.shadow {
     transform: translateX(0px);
   }
 }
-.containerModalCart aside .headerCartMenu {
+.modalCart .headerCartMenu {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -244,7 +257,7 @@ ul.productsCartList::-webkit-scrollbar-thumb {
   font-weight: 600;
   font-size: 10px;
 }
-button{
+button {
   cursor: pointer;
 }
 .amountProduct button {
@@ -396,7 +409,7 @@ footer button#checkoutBtn:active {
   font-weight: 500;
   color: var(--main-color);
 }
-i{
+i {
   cursor: pointer;
 }
 .shop-container .box .bx {
